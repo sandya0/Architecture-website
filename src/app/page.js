@@ -1,8 +1,11 @@
+'use client';
+
 import About from "@/components/About";
+import Footer from "@/components/Footer";
 import Gallery from "@/components/Gallery";
 import GalleryText from "@/components/GalleryText";
 import Hero from "@/components/Hero";
-import InternalHero from "@/components/InternalHero";
+import ScrollGallery from "@/components/ScrollGallery";
 
 export default function Home() {
   return (
@@ -17,7 +20,8 @@ export default function Home() {
           <About />
           <Gallery />
           <GalleryText />
-          <InternalHero />
+          <ScrollGallery />
+          <Footer />
         </div>
         
       </main>
