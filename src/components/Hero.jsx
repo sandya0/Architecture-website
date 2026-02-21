@@ -29,9 +29,9 @@ const Hero = () => {
       // Parallax effect
       gsap.fromTo(
         image,
-        { yPercent: -10 },
+        { yPercent: -5 },
         {
-          yPercent: 10,
+          yPercent: 5,
           ease: 'none',
           scrollTrigger: {
             trigger: section,
