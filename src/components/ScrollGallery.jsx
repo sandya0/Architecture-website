@@ -32,12 +32,12 @@ const slides = [
             </div>
             <div className="md:col-start-5 md:col-span-5 self-end space-y-6 pb-12 md:pb-20">
               <Text>
-                <p className="text-sm md:text-base xl:text-base 2xl:text-xl text-white/90 leading-relaxed drop-shadow-md">
+                <p className="text-sm md:text-base xl:text-base 2xl:text-xl text-white/90 leading-relaxed tracking-wide drop-shadow-md">
                   Permeable facades allow natural ventilation to flow through the social areas, maintaining thermal comfort without heavy reliance on artificial cooling.
                 </p>
               </Text>
               <Text>
-                <p className="text-sm md:text-base xl:text-base 2xl:text-xl text-white/90 leading-relaxed drop-shadow-md">
+                <p className="text-sm md:text-base xl:text-base 2xl:text-xl text-white/90 leading-relaxed tracking-wide  drop-shadow-md">
                   Each material was selected for its ability to age gracefully, grounding the floating volumes of the exterior in a tactile, human-centric interior experience.
                 </p>
               </Text>

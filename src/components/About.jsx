@@ -11,7 +11,7 @@ const About = () => {
           {/* Strictly starts at 2nd column and spans 7 on md screens and larger */}
           <div className="md:col-start-2 md:col-span-7">
             <Text>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl 2xl:text-8xl tracking-wide font-sans text-black">
+              <h2 className="text-4xl md:text-4xl lg:text-5xl 2xl:text-7xl tracking-wide font-sans text-black">
                 A layered retreat of light, air, and silence.
               </h2>
             </Text>
