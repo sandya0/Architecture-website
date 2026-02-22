@@ -25,19 +25,19 @@ const slides = [
           <div className="grid h-full grid-cols-1 md:grid-cols-12 gap-[var(--spacing-gutter)]">
             <div className="md:col-start-2 md:col-span-6 self-start pt-8 md:pt-12">
               <Text>
-                <p className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight text-white drop-shadow-lg tracking-wide">
+                <p className="text-xl md:text-3xl xl:text-2xl 2xl:text-5xl font-bold leading-tight text-white drop-shadow-lg tracking-wide">
                   The interior spaces are designed to maximize the interplay of light and shadow, creating a dynamic atmosphere that shifts throughout the day.
                 </p>
               </Text>
             </div>
             <div className="md:col-start-5 md:col-span-5 self-end space-y-6 pb-12 md:pb-20">
               <Text>
-                <p className="text-sm md:text-base font-medium xl:text-2xl text-white/90 leading-relaxed drop-shadow-md">
+                <p className="text-sm md:text-base font-medium 2xl:text-2xl text-white/90 leading-relaxed drop-shadow-md">
                   Permeable facades allow natural ventilation to flow through the social areas, maintaining thermal comfort without heavy reliance on artificial cooling.
                 </p>
               </Text>
               <Text>
-                <p className="text-sm md:text-base font-medium xl:text-2xl text-white/90 leading-relaxed drop-shadow-md">
+                <p className="text-sm md:text-base font-medium 2xl:text-2xl text-white/90 leading-relaxed drop-shadow-md">
                   Each material was selected for its ability to age gracefully, grounding the floating volumes of the exterior in a tactile, human-centric interior experience.
                 </p>
               </Text>

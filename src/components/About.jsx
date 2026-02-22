@@ -34,7 +34,7 @@ const About = () => {
           {/* Column 2: Credits */}
           {/* Tablet: starts col 7 | Desktop: uses your original col-start-9 */}
           <div className="md:col-start-7 lg:col-start-9 md:col-span-5 lg:col-span-3">
-            <div className="flex flex-col gap-4 text-sm md:text-base xl:text-xl leading-snug text-black font-medium">
+            <div className="flex flex-col gap-4 text-sm md:text-base xl:text-lg 2xl:text-xl leading-snug text-black font-medium">
               
               <div>
                 <Text>
