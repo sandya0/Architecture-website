@@ -25,7 +25,7 @@ const About = () => {
           {/* Tablet: starts col 2 | Desktop: uses your original col-start-6 */}
           <div className="md:col-start-2 lg:col-start-6 md:col-span-5 lg:col-span-3">
             <Text>
-              <p className="text-sm md:text-base xl:text-xl leading-relaxed text-black font-medium">
+              <p className="text-sm md:text-base xl:text-lg 2xl:text-xl leading-relaxed text-black font-medium">
                 Steric Spes is a four-storey urban residence that reinterprets privacy and openness through stacked volumes and a permeable breeze-block facade. Designed for a west-facing site, the house filters harsh sunlight while maintaining natural airflow, layered views, and a calm retreat from its dense surroundings, with spatial sequencing that enhances comfort and a subtle connection between indoor and outdoor living.
               </p>
             </Text>
