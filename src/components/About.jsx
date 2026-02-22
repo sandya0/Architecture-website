@@ -11,7 +11,7 @@ const About = () => {
           {/* Strictly starts at 2nd column and spans 7 on md screens and larger */}
           <div className="md:col-start-2 md:col-span-7">
             <Text>
-              <h2 className="text-4xl md:text-5xl 2xl:text-8xl tracking-wide font-sans text-black">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl 2xl:text-8xl tracking-wide font-sans text-black">
                 A layered retreat of light, air, and silence.
               </h2>
             </Text>
@@ -25,7 +25,7 @@ const About = () => {
           {/* Tablet: starts col 2 | Desktop: uses your original col-start-6 */}
           <div className="md:col-start-2 lg:col-start-6 md:col-span-5 lg:col-span-3">
             <Text>
-              <p className="text-sm md:text-base xl:text-lg 2xl:text-xl leading-relaxed text-black font-medium">
+              <p className="text-sm md:text-base xl:text-base 2xl:text-xl leading-relaxed text-black font-medium">
                 Steric Spes is a four-storey urban residence that reinterprets privacy and openness through stacked volumes and a permeable breeze-block facade. Designed for a west-facing site, the house filters harsh sunlight while maintaining natural airflow, layered views, and a calm retreat from its dense surroundings, with spatial sequencing that enhances comfort and a subtle connection between indoor and outdoor living.
               </p>
             </Text>
@@ -34,7 +34,7 @@ const About = () => {
           {/* Column 2: Credits */}
           {/* Tablet: starts col 7 | Desktop: uses your original col-start-9 */}
           <div className="md:col-start-7 lg:col-start-9 md:col-span-5 lg:col-span-3">
-            <div className="flex flex-col gap-4 text-sm md:text-base xl:text-lg 2xl:text-xl leading-snug text-black font-medium">
+            <div className="flex flex-col gap-4 text-sm md:text-base xl:text-base 2xl:text-xl leading-snug text-black font-medium">
               
               <div>
                 <Text>
