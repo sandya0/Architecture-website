@@ -11,7 +11,7 @@ const GalleryText = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-[var(--spacing-gutter)] mb-6 md:mb-8">
           <div className="md:col-start-2 md:col-span-10">
             <Text>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-normal text-black font-sans leading-none">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold uppercase tracking-normal text-black font-sans leading-none">
                 Stacked Volumes, Floating Lightness
               </h2>
             </Text>
