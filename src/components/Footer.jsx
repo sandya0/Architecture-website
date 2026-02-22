@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="col-start-2 col-span-11 md:col-start-2 md:col-span-5 flex flex-col justify-between h-full">
             <div>
               <Text>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase tracking-tighter text-black leading-[0.9] mb-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl 2xl:text-8xl font-bold uppercase tracking-tighter text-black leading-[0.9] mb-6">
                   LET'S TALK
                 </h1>
               </Text>
@@ -41,7 +41,7 @@ const Footer = () => {
               <Text key={i}>
                 <a 
                   href="#" 
-                  className="text-sm md:text-base font-medium text-gray-500 hover:text-black transition-colors"
+                  className="text-sm md:text-base xl:text-2xl font-medium text-gray-500 hover:text-black transition-colors"
                 >
                   {item}
                 </a>
@@ -53,10 +53,10 @@ const Footer = () => {
 
         {/* BOTTOM ROW */}
         <div className="w-full grid grid-cols-12 md:grid-cols-12 gap-[var(--spacing-gutter)] mt-12 md:mt-auto">
-          {/* WATERMARK: Explicitly forced to col 2 on all sizes */}
+          {/* WATERMARK: Explicitly forced to col 2 on all sizes */}  
           <div className="col-start-2 col-span-11 md:col-start-2 md:col-span-10">
             <Text>
-              <h2 className="text-[15vw] md:text-[11.5vw] leading-none font-bold uppercase text-[#b0b0b0] tracking-normal -ml-[0.5vw] opacity-30 whitespace-nowrap">
+              <h2 className="text-[10vw] lg:text-[11.5vw] leading-none font-bold uppercase text-[#7a7a7a] tracking-normal -ml-[0.5vw] opacity-30 whitespace-nowrap">
                 HOLLO STUDIO
               </h2>
             </Text>
