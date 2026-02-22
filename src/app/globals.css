@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Epoch';
-  src: url("/fonts/Epoch.otf") format("otf");
+  src: url("/fonts/Epoch.otf") format("opentype"); /* Changed from "otf" */
   font-weight: 800;
   font-style: normal;
 }
