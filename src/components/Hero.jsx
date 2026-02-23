@@ -7,18 +7,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const DIGIT_H = 100; // px — single source of truth for digit height
+const DIGIT_H = 100;
 
 const Hero = () => {
-  const sectionRef       = useRef(null);
-  const heroWrapperRef   = useRef(null);
-  const imageRef         = useRef(null);
-  const loaderRef        = useRef(null);
-  const progressRef      = useRef(null);
-  const digit1Ref        = useRef(null); // hundreds (0 → 1)
-  const digit2Ref        = useRef(null); // tens     (0 → 0 cycling)
-  const digit3Ref        = useRef(null); // units    (0 → 0 cycling)
-  const titleRef         = useRef(null);
+  const sectionRef     = useRef(null);
+  const heroWrapperRef = useRef(null);
+  const imageRef       = useRef(null);
+  const loaderRef      = useRef(null);
+  const progressRef    = useRef(null);
+  const digit1Ref      = useRef(null);
+  const digit2Ref      = useRef(null);
+  const digit3Ref      = useRef(null);
+  const titleRef       = useRef(null);
 
   const heroImages = [
     "/images/internal.jpg",
@@ -37,6 +37,55 @@ const Hero = () => {
   const headingText = "Steric Spes".split("");
 
   useEffect(() => {
+    // ── Scroll lock helpers ───────────────────────────────────────────────────
+    //
+    // Problem: on mobile, overflow:hidden on <body> is NOT enough to stop
+    // scrolling. Touch events still fire and momentum/inertia scroll continues.
+    //
+    // Solution (three-pronged):
+    //   1. position:fixed + top:-scrollY  → freezes the body in place (desktop + mobile)
+    //   2. touchmove preventDefault        → blocks native touch scroll (iOS Safari)
+    //   3. wheel + keydown preventDefault  → blocks trackpad / keyboard scroll (desktop)
+    // ─────────────────────────────────────────────────────────────────────────
+    let savedScrollY = 0;
+    const SCROLL_KEYS = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+
+    const preventTouch = (e) => e.preventDefault();
+    const preventWheel = (e) => e.preventDefault();
+    const preventKeys  = (e) => { if (SCROLL_KEYS.includes(e.key)) e.preventDefault(); };
+
+    const lockScroll = () => {
+      savedScrollY = window.scrollY;
+
+      // Freeze body — restores scroll position after unlock
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top      = `-${savedScrollY}px`;
+      document.body.style.width    = '100%';
+
+      // Block touch scroll (iOS Safari needs passive:false to allow preventDefault)
+      document.addEventListener('touchmove', preventTouch, { passive: false });
+      // Block wheel / trackpad
+      document.addEventListener('wheel',     preventWheel, { passive: false });
+      // Block keyboard scroll
+      document.addEventListener('keydown',   preventKeys);
+    };
+
+    const unlockScroll = () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top      = '';
+      document.body.style.width    = '';
+
+      // Restore the scroll position that position:fixed reset to 0
+      window.scrollTo(0, savedScrollY);
+
+      document.removeEventListener('touchmove', preventTouch);
+      document.removeEventListener('wheel',     preventWheel);
+      document.removeEventListener('keydown',   preventKeys);
+    };
+    // ─────────────────────────────────────────────────────────────────────────
+
     let ctx = gsap.context(() => {
 
       const initScrollTrigger = () => {
@@ -49,9 +98,6 @@ const Hero = () => {
           anticipatePin: 1,
         });
 
-        // FIX: gsap.to (not fromTo) — image starts at its natural position (yPercent: 0)
-        // so there's no snap/jump when ScrollTrigger initialises after the loader.
-        // It simply drifts downward as the user scrolls past the pinned section.
         gsap.to(imageRef.current, {
           yPercent: 5,
           ease: 'none',
@@ -65,9 +111,9 @@ const Hero = () => {
       };
 
       const tl = gsap.timeline({
-        onStart: () => { document.body.style.overflow = 'hidden'; },
+        onStart:    () => lockScroll(),
         onComplete: () => {
-          document.body.style.overflow = 'auto';
+          unlockScroll();
           initScrollTrigger();
         },
       });
@@ -81,14 +127,11 @@ const Hero = () => {
       animateCol(digit2Ref, 6, 0);
       animateCol(digit1Ref, 2, 4);
 
-      // Progress bar
       tl.to(progressRef.current, { width: '30%', duration: 2, ease: 'power4.inOut' }, 5);
       tl.to(progressRef.current, { width: '100%', opacity: 0, duration: 2, ease: 'power3.out' }, 6.5);
 
-      // Hide loader
       tl.to(loaderRef.current, { autoAlpha: 0, display: 'none', duration: 0.5 }, 8.5);
 
-      // Image stagger reveal
       tl.to('.hero-img-reveal', {
         clipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)',
         duration: 1,
@@ -96,14 +139,12 @@ const Hero = () => {
         stagger: 0.25,
       }, 8);
 
-      // Hero scale-down
       tl.fromTo(heroWrapperRef.current,
         { scale: 1.25 },
         { scale: 1, duration: 3, ease: 'power3.inOut' },
         8
       );
 
-      // Title char reveal
       tl.fromTo(
         titleRef.current.querySelectorAll('.char'),
         { y: '100%', opacity: 0 },
@@ -114,13 +155,18 @@ const Hero = () => {
     }, sectionRef);
 
     return () => {
-      document.body.style.overflow = 'auto';
+      // Always clean up on unmount in case animation is mid-flight
+      unlockScroll();
       ctx.revert();
     };
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-screen bg-black p-0 m-0">
+    <section
+      ref={sectionRef}
+      className="relative w-full bg-black p-0 m-0"
+      style={{ height: '100dvh' }}
+    >
 
       {/* ── PRE-LOADER ─────────────────────────────────────────────── */}
       <div
@@ -186,7 +232,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* ── HERO WRAPPER ───────────────────────────────────────────── */}
+      {/* ── HERO WRAPPER (images only) ─────────────────────────────── */}
       <div
         ref={heroWrapperRef}
         className="absolute inset-0 w-full h-full overflow-hidden origin-center z-0"
@@ -211,27 +257,33 @@ const Hero = () => {
             </div>
           );
         })}
-
-        {/* Text overlay */}
-        <div className="relative z-10 w-full h-full p-8 flex flex-col justify-between pointer-events-none">
-          <div>
-            <span className="text-sm font-medium uppercase tracking-[0.3em] text-white/70">
-              Architecture
-            </span>
-          </div>
-
-          <h1
-            ref={titleRef}
-            className="text-white text-[12vw] font-bold leading-none overflow-hidden flex flex-wrap"
-          >
-            {headingText.map((char, index) => (
-              <span key={index} className="char relative inline-block whitespace-pre">
-                {char}
-              </span>
-            ))}
-          </h1>
-        </div>
       </div>
+
+      {/* ── TEXT OVERLAY (outside wrapper — never clipped or scaled) ── */}
+      <div
+        className="absolute inset-0 z-10 w-full h-full flex flex-col justify-between pointer-events-none"
+        style={{
+          padding: 'max(2rem, env(safe-area-inset-top)) 2rem max(2rem, env(safe-area-inset-bottom)) 2rem',
+        }}
+      >
+        <div>
+          <span className="text-sm font-medium uppercase tracking-[0.3em] text-white/70">
+            Architecture
+          </span>
+        </div>
+
+        <h1
+          ref={titleRef}
+          className="text-white text-[12vw] font-bold leading-none overflow-hidden flex flex-wrap"
+        >
+          {headingText.map((char, index) => (
+            <span key={index} className="char relative inline-block whitespace-pre">
+              {char}
+            </span>
+          ))}
+        </h1>
+      </div>
+
     </section>
   );
 };
