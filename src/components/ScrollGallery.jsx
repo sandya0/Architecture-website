@@ -5,144 +5,25 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
-import Text from './template/Text';
+import ExteriorFrame from './ExteriorFrame';
 
-// Register plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// ---------------------------
-// SLIDE DEFINITIONS
-// ---------------------------
 const slides = [
-  // --- SLIDE 1: INTERNAL HERO ---
-  {
-    id: 'internal-hero',
-    bgImage: '/images/internal.jpg',
-    content: (
-      <div className="w-full h-full relative">
-        <div className="absolute inset-0 bg-black/50 z-0" />
-        <div className="absolute inset-0 px-[var(--spacing-margin)] py-12 md:py-16 z-10">
-          <div className="grid h-full grid-cols-4 md:grid-cols-12 gap-[var(--spacing-gutter)]">
-            <div className="col-span-4 md:col-start-2 md:col-span-6 self-start pt-8 md:pt-12">
-              <Text>
-                <p className="text-xl md:text-3xl xl:text-xl 2xl:text-4xl font-bold leading-tight text-white drop-shadow-lg tracking-wide">
-                  The interior spaces are designed to maximize the interplay of light and shadow, creating a dynamic atmosphere that shifts throughout the day.
-                </p>
-              </Text>
-            </div>
-            <div className="col-span-4 md:col-start-5 md:col-span-5 self-end space-y-4 pb-10 md:pb-20">
-              <Text>
-                <p className="text-sm md:text-base xl:text-base 2xl:text-xl text-white/90 leading-relaxed tracking-wide drop-shadow-md">
-                  Permeable facades allow natural ventilation to flow through the social areas, maintaining thermal comfort without heavy reliance on artificial cooling.
-                </p>
-              </Text>
-              <Text>
-                <p className="text-sm md:text-base xl:text-base 2xl:text-xl text-white/90 leading-relaxed tracking-wide drop-shadow-md">
-                  Each material was selected for its ability to age gracefully, grounding the floating volumes of the exterior in a tactile, human-centric interior experience.
-                </p>
-              </Text>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
-  // --- SLIDE 2: EXTERIOR FRAME ---
   {
     id: 'exterior-slide-1',
     bgImage: '/images/M_W_0107-Edit.jpg',
-    content: (
-      <div className="w-full h-full flex items-center px-[var(--spacing-margin)] relative z-10">
-        <div className="absolute inset-0 bg-black/5 -z-10" />
-        {/* Mobile: single relative container so image is always centred inside the card */}
-        <div className="w-full grid grid-cols-4 md:grid-cols-12 gap-[var(--spacing-gutter)] items-center">
-          {/* Card + inset image — stacked via relative/absolute on mobile */}
-          <div className="col-span-4 md:col-start-3 md:col-span-8 md:row-start-1 relative bg-white shadow-2xl h-56 sm:h-64 xl:h-96 w-full">
-            {/* Mobile: image sits inset inside the card */}
-            <div className="absolute inset-4 md:hidden shadow-sm overflow-hidden">
-              <Image
-                src="/images/M_W_0107-Edit.jpg"
-                alt="Exterior Detail 1"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-          {/* Desktop: image overlaps the card via grid row overlap */}
-          <div className="hidden md:block md:col-start-5 md:col-span-4 md:row-start-1 relative h-72 xl:h-80 z-10 shadow-sm">
-            <Image
-              src="/images/M_W_0107-Edit.jpg"
-              alt="Exterior Detail 1"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </div>
-    ),
+    content: <ExteriorFrame src="/images/M_W_0107-Edit.jpg" alt="Exterior Detail 1" />,
   },
-
-  // --- SLIDE 3 ---
   {
     id: 'exterior-slide-2',
     bgImage: '/images/M_W_0264-Edit.jpg',
-    content: (
-      <div className="w-full h-full flex items-center px-[var(--spacing-margin)] relative z-10">
-        <div className="absolute inset-0 bg-black/5 -z-10" />
-        <div className="w-full grid grid-cols-4 md:grid-cols-12 gap-[var(--spacing-gutter)] items-center">
-          <div className="col-span-4 md:col-start-3 md:col-span-8 md:row-start-1 relative bg-white shadow-2xl h-56 sm:h-64 xl:h-96 w-full">
-            <div className="absolute inset-4 md:hidden shadow-sm overflow-hidden">
-              <Image
-                src="/images/M_W_0264-Edit.jpg"
-                alt="Exterior Detail 2"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="hidden md:block md:col-start-5 md:col-span-4 md:row-start-1 relative h-72 xl:h-80 z-10 shadow-sm">
-            <Image
-              src="/images/M_W_0264-Edit.jpg"
-              alt="Exterior Detail 2"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </div>
-    ),
+    content: <ExteriorFrame src="/images/M_W_0264-Edit.jpg" alt="Exterior Detail 2" />,
   },
-
-  // --- SLIDE 4 ---
   {
     id: 'exterior-slide-3',
     bgImage: '/images/M_W_0107-Edit.jpg',
-    content: (
-      <div className="w-full h-full flex items-center px-[var(--spacing-margin)] relative z-10">
-        <div className="absolute inset-0 bg-black/5 -z-10" />
-        <div className="w-full grid grid-cols-4 md:grid-cols-12 gap-[var(--spacing-gutter)] items-center">
-          <div className="col-span-4 md:col-start-3 md:col-span-8 md:row-start-1 relative bg-white shadow-2xl h-56 sm:h-64 xl:h-96 w-full">
-            <div className="absolute inset-4 md:hidden shadow-sm overflow-hidden">
-              <Image
-                src="/images/M_W_0107-Edit.jpg"
-                alt="Exterior Detail 3"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="hidden md:block md:col-start-5 md:col-span-4 md:row-start-1 relative h-72 xl:h-80 z-10 shadow-sm">
-            <Image
-              src="/images/M_W_0107-Edit.jpg"
-              alt="Exterior Detail 3"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </div>
-    ),
+    content: <ExteriorFrame src="/images/M_W_0107-Edit.jpg" alt="Exterior Detail 3" />,
   },
 ];
 

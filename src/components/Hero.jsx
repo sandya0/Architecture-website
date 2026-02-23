@@ -123,33 +123,33 @@ const Hero = () => {
         tl.to(ref.current, { y: -totalDistance, duration, ease: 'power2.inOut' }, delay);
       };
 
-      animateCol(digit3Ref, 5, 0);
-      animateCol(digit2Ref, 6, 0);
-      animateCol(digit1Ref, 2, 4);
+      animateCol(digit3Ref, 2.5, 0);
+      animateCol(digit2Ref, 3, 0);
+      animateCol(digit1Ref, 1, 2);
 
-      tl.to(progressRef.current, { width: '30%', duration: 2, ease: 'power4.inOut' }, 5);
-      tl.to(progressRef.current, { width: '100%', opacity: 0, duration: 2, ease: 'power3.out' }, 6.5);
+      tl.to(progressRef.current, { width: '30%', duration: 2, ease: 'power4.inOut' }, 2.5);
+      tl.to(progressRef.current, { width: '100%', opacity: 0, duration: 2, ease: 'power3.out' }, 3.5);
 
-      tl.to(loaderRef.current, { autoAlpha: 0, display: 'none', duration: 0.5 }, 8.5);
+      tl.to(loaderRef.current, { autoAlpha: 0, display: 'none', duration: 0.5 }, 4.5);
 
       tl.to('.hero-img-reveal', {
         clipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)',
         duration: 1,
         ease: 'power4.inOut',
         stagger: 0.25,
-      }, 8);
+      }, 4);
 
       tl.fromTo(heroWrapperRef.current,
         { scale: 1.25 },
         { scale: 1, duration: 3, ease: 'power3.inOut' },
-        8
+        4
       );
 
       tl.fromTo(
         titleRef.current.querySelectorAll('.char'),
         { y: '100%', opacity: 0 },
         { y: '0%', opacity: 1, stagger: 0.1, duration: 1, ease: 'power3.out' },
-        10
+        4.8
       );
 
     }, sectionRef);
