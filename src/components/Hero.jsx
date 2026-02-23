@@ -132,7 +132,7 @@ const Hero = () => {
           style={{ height: DIGIT_H }}
         >
           <p
-            className="text-4xl md:text-6xl mr-4 leading-none"
+            className="text-2xl md:text-2xl xl:text-5xl 2xl:text-6xl mr-4 leading-none"
             style={{ lineHeight: `${DIGIT_H}px` }}
           >
             Loading
@@ -222,7 +222,7 @@ const Hero = () => {
 
           <h1
             ref={titleRef}
-            className="text-white text-[12vw] font-bold leading-[0.8] overflow-hidden flex"
+            className="text-white text-[12vw] font-bold leading-none overflow-hidden flex flex-wrap"
           >
             {headingText.map((char, index) => (
               <span key={index} className="char relative inline-block whitespace-pre">
