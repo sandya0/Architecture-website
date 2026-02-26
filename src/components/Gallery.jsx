@@ -38,13 +38,13 @@ const Gallery = () => {
   ];
 
   const images = [
-    "/images/M_W_0107-Edit.jpg",
-    "/images/M_W_0264-Edit.jpg",
-    "/images/internal.jpg",
-    "/images/M_W_0107-Edit.jpg",
-    "/images/M_W_0264-Edit.jpg",
-    "/images/internal.jpg",
-    "/images/M_W_0107-Edit.jpg",
+    "/images/Gallery1.jpg",
+    "/images/Gallery2.jpg",
+    "/images/Gallery3.jpg",
+    "/images/Gallery4.jpg",
+    "/images/Gallery5.jpg",
+    "/images/Gallery6.jpg",
+    "/images/Gallery7.jpg",
   ];
 
   useLayoutEffect(() => {

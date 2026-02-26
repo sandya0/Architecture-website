@@ -22,11 +22,11 @@ const Hero = () => {
 
   const heroImages = [
     "/images/internal.jpg",
-    "/images/M_W_0668-Edit.jpg",
-    "/images/M_W_0264-Edit.jpg",
-    "/images/M_W_0668-Edit.jpg",
-    "/images/M_W_0264-Edit.jpg",
-    "/images/internal.jpg",
+    "/images/Gallery4.jpg",
+    "/images/Details1.jpg",
+    "/images/Slide1.jpg",
+    "/images/Slide2.jpg",
+    "/images/Details1.jpg",
     "/images/M_W_0107-Edit.jpg",
   ];
 
@@ -140,7 +140,7 @@ const Hero = () => {
       }, 4);
 
       tl.fromTo(heroWrapperRef.current,
-        { scale: 1.25 },
+        { scale: 1.05 },
         { scale: 1, duration: 3, ease: 'power3.inOut' },
         4
       );

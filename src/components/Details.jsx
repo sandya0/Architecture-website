@@ -22,18 +22,18 @@ export default function Details() {
         <div className="col-span-4 md:col-start-7 md:col-span-5 flex flex-col mt-8 md:mt-0">
           <div className="relative w-full aspect-video bg-[#d9d9d9] mb-4 overflow-hidden">
             <Image
-              src="/images/M_W_0107-Edit.jpg"
+              src="/images/Details1.jpg"
               alt="Steric Spes House Detail 1"
               fill
               className="object-cover"
             />
           </div>
-          <Text>
+          {/* <Text>
             <span className="block text-sm md:text-base font-semibold mb-1">Lorem Ipsum dolor</span>
           </Text>
           <Text>
             <span className="block text-xs md:text-sm text-gray-500">Lorem ipsum dolor</span>
-          </Text>
+          </Text> */}
         </div>
       </div>
 

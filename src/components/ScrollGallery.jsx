@@ -12,18 +12,18 @@ gsap.registerPlugin(ScrollTrigger);
 const slides = [
   {
     id: 'exterior-slide-1',
-    bgImage: '/images/M_W_0107-Edit.jpg',
-    content: <ExteriorFrame src="/images/M_W_0107-Edit.jpg" alt="Exterior Detail 1" />,
+    bgImage: '/images/Slide1.jpg',
+    content: <ExteriorFrame src="/images/Slide1.jpg" alt="Exterior Detail 1" />,
   },
   {
     id: 'exterior-slide-2',
-    bgImage: '/images/M_W_0264-Edit.jpg',
-    content: <ExteriorFrame src="/images/M_W_0264-Edit.jpg" alt="Exterior Detail 2" />,
+    bgImage: '/images/Slide2.jpg',
+    content: <ExteriorFrame src="/images/Slide2.jpg" alt="Exterior Detail 2" />,
   },
   {
     id: 'exterior-slide-3',
-    bgImage: '/images/M_W_0107-Edit.jpg',
-    content: <ExteriorFrame src="/images/M_W_0107-Edit.jpg" alt="Exterior Detail 3" />,
+    bgImage: '/images/Slide3.jpg',
+    content: <ExteriorFrame src="/images/Slide3.jpg" alt="Exterior Detail 3" />,
   },
 ];
 
