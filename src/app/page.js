@@ -18,7 +18,7 @@ export default function Home() {
         <Hero />
 
         {/* 2. About component MUST have a background and a higher z-index */}
-        <div className="relative z-10 bg-white"> 
+        <div className="relative z-10 bg-white" data-nav-theme="light">
           <About />
           <Gallery />
           <GalleryText />
@@ -27,7 +27,7 @@ export default function Home() {
           <ScrollGallery />
           <Footer />
         </div>
-        
+
       </main>
     </>
   );

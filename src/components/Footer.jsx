@@ -3,13 +3,13 @@ import Text from './template/Text';
 
 const Footer = () => {
   return (
-    <footer className="w-full min-h-[400px] md:min-h-[50vh] bg-white py-12 md:py-16 lg:py-24 border-t border-gray-200 overflow-hidden flex flex-col justify-between">
-      
+    <footer id="contact" className="w-full min-h-[400px] md:min-h-[50vh] bg-white py-12 md:py-16 lg:py-24 border-t border-gray-200 overflow-hidden flex flex-col justify-between">
+
       <div className="w-full px-[var(--spacing-margin)] h-full flex flex-col justify-between flex-grow">
-        
+
         {/* TOP ROW */}
         <div className="grid grid-cols-12 md:grid-cols-12 gap-[var(--spacing-gutter)]">
-          
+
           {/* LEFT CONTENT */}
           <div className="col-start-1 col-span-11 md:col-start-2 md:col-span-5 flex flex-col justify-between h-full">
             <div>
@@ -54,7 +54,7 @@ const Footer = () => {
 
         {/* BOTTOM ROW */}
         <div className="w-full grid grid-cols-12 md:grid-cols-12 gap-[var(--spacing-gutter)] mt-12 md:mt-auto">
-          
+
           {/* CLICKABLE WATERMARK */}
           <div className="col-start-1 col-span-11 md:col-start-2 md:col-span-10">
             <Text>

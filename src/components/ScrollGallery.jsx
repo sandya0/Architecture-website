@@ -40,13 +40,23 @@ export default function ScrollGallery() {
           start: 'top top',
           end: `+=${sections.length * 100}%`,
           pin: true,
-          scrub: 0.5,
-          anticipatePin: 1,
+
+          // Let Lenis handle the momentum, so they don't fight
+          scrub: true,
+
+          // Softened the anticipatePin so the entry is less aggressive
+          anticipatePin: 0.5,
+
           snap: {
             snapTo: 1 / (sections.length - 1),
-            duration: { min: 0.2, max: 0.8 },
-            delay: 0,
-            ease: 'power1.inOut',
+            // Makes the snap respect the user's scroll direction
+            directional: true,
+            // Gives the snap plenty of time to execute smoothly
+            duration: { min: 0.7, max: 1.5 },
+            // Waits a quarter of a second for Lenis to finish gliding before snapping
+            delay: 0.25,
+            // The softest easing curve for a gentle settle
+            ease: 'sine.inOut',
           },
         },
       });
@@ -83,6 +93,7 @@ export default function ScrollGallery() {
   return (
     <section
       ref={containerRef}
+      data-nav-theme="dark"
       className="relative w-full h-screen overflow-hidden bg-[#efefef]"
     >
       {slides.map((slide, i) => (
@@ -108,6 +119,7 @@ export default function ScrollGallery() {
                     src={slide.bgImage}
                     alt={`Gallery Image ${i + 1}`}
                     fill
+                    sizes="100vw"
                     className="object-cover"
                     priority={i === 0}
                   />

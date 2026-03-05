@@ -4,11 +4,12 @@ import Text from './template/Text';
 
 export default function InternalHero() {
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section data-nav-theme="dark" className="relative w-full h-screen overflow-hidden">
       <Image
         src="/images/internal.jpg"
         alt="Internal Hero Background"
         fill
+        sizes="100vw"
         className="object-cover -z-10"
         priority
       />
