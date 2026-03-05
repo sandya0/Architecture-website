@@ -23,10 +23,9 @@ const Hero = () => {
   const heroImages = [
     "/images/internal.jpg",
     "/images/Gallery4.jpg",
-    "/images/Details1.jpg",
+    "/images/hero3.jpg",
     "/images/Slide1.jpg",
-    "/images/Slide2.jpg",
-    "/images/Details1.jpg",
+    "/images/hero2.jpg",
     "/images/M_W_0107-Edit.jpg",
   ];
 
@@ -134,9 +133,9 @@ const Hero = () => {
 
       tl.to('.hero-img-reveal', {
         clipPath: 'polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)',
-        duration: 1,
+        duration: 2,
         ease: 'power4.inOut',
-        stagger: 0.25,
+        stagger: 0.5,
       }, 4);
 
       tl.fromTo(heroWrapperRef.current,
@@ -149,7 +148,7 @@ const Hero = () => {
         titleRef.current.querySelectorAll('.char'),
         { y: '100%', opacity: 0 },
         { y: '0%', opacity: 1, stagger: 0.1, duration: 1, ease: 'power3.out' },
-        4.8
+        7.5
       );
 
     }, sectionRef);

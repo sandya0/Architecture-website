@@ -7,10 +7,10 @@ const Footer = () => {
       
       <div className="w-full px-[var(--spacing-margin)] h-full flex flex-col justify-between flex-grow">
         
-        {/* TOP ROW: Explicitly defined 12-column grid for both base and md */}
+        {/* TOP ROW */}
         <div className="grid grid-cols-12 md:grid-cols-12 gap-[var(--spacing-gutter)]">
           
-          {/* LEFT CONTENT: Explicitly told to start at col 2 on mobile AND desktop */}
+          {/* LEFT CONTENT */}
           <div className="col-start-1 col-span-11 md:col-start-2 md:col-span-5 flex flex-col justify-between h-full">
             <div>
               <Text>
@@ -19,31 +19,32 @@ const Footer = () => {
                 </h1>
               </Text>
 
-              {/* Contact Info */}
               <div className="flex flex-col gap-1 mt-4">
                 <Text>
                   <p className="text-sm md:text-base text-gray-400 font-medium">
                     Have a project in mind?
                   </p>
                 </Text>
-                <Text>
-                  {/* <a href="mailto:hello@hollowstudio.com" className="text-sm md:text-base text-black font-bold hover:underline">
-                    hello@hollowstudio.com
-                  </a> */}
-                </Text>
               </div>
             </div>
           </div>
 
-          {/* RIGHT CONTENT: Starts at col 2 on mobile, moves exactly to col 11 on desktop */}
+          {/* SOCIALS */}
           <div className="col-start-1 col-span-11 md:col-start-11 md:col-span-2 flex flex-col items-start gap-2 mt-8 md:mt-2">
-            {['Instagram', 'LinkedIn', 'Behance'].map((item, i) => (
+            {[
+              { name: 'Instagram', link: 'https://www.instagram.com/hollowebstudio' },
+              { name: 'LinkedIn', link: 'https://www.linkedin.com/in/sandya-pradayan-baa04b213/' },
+              { name: 'X', link: 'https://x.com/sandyaporto' }
+            ].map((item, i) => (
               <Text key={i}>
-                <a 
-                  href="#" 
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit Hollo Studio on ${item.name}`}
                   className="text-sm md:text-base lg:text-lg xl:text-2xl font-medium text-gray-500 hover:text-black transition-colors"
                 >
-                  {item}
+                  {item.name}
                 </a>
               </Text>
             ))}
@@ -53,14 +54,22 @@ const Footer = () => {
 
         {/* BOTTOM ROW */}
         <div className="w-full grid grid-cols-12 md:grid-cols-12 gap-[var(--spacing-gutter)] mt-12 md:mt-auto">
-          {/* WATERMARK: Explicitly forced to col 2 on all sizes */}  
+          
+          {/* CLICKABLE WATERMARK */}
           <div className="col-start-1 col-span-11 md:col-start-2 md:col-span-10">
             <Text>
-              <h2 className="text-[10vw] lg:text-[11.5vw] leading-none font-bold uppercase text-[#7a7a7a] tracking-normal -ml-[0.5vw] opacity-30 whitespace-nowrap">
-                HOLLO STUDIO
-              </h2>
+              <a
+                href="https://hollostudio.site"
+                className="block"
+                aria-label="Visit Hollo Studio Website"
+              >
+                <h2 className="text-[10vw] lg:text-[11.5vw] leading-none font-bold uppercase text-[#7a7a7a] tracking-normal -ml-[0.5vw] opacity-30 whitespace-nowrap hover:opacity-50 transition-opacity">
+                  HOLLO STUDIO
+                </h2>
+              </a>
             </Text>
           </div>
+
         </div>
 
       </div>
